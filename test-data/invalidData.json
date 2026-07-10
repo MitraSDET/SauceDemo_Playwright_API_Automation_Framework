@@ -1,0 +1,55 @@
+{
+  "invalidBooking": {
+    "firstname": 12345,
+    "lastname": true,
+    "totalprice": "ABC",
+    "depositpaid": "Yes",
+    "bookingdates": {
+      "checkin": "32-13-2026",
+      "checkout": "invalid-date"
+    },
+    "additionalneeds": 100
+  },
+
+  "missingMandatoryFields": {
+    "firstname": "John"
+  },
+
+  "emptyPayload": {},
+
+  "nullValues": {
+    "firstname": null,
+    "lastname": null,
+    "totalprice": null,
+    "depositpaid": null,
+    "bookingdates": {
+      "checkin": null,
+      "checkout": null
+    },
+    "additionalneeds": null
+  },
+
+  "emptyStrings": {
+    "firstname": "",
+    "lastname": "",
+    "totalprice": "",
+    "depositpaid": "",
+    "bookingdates": {
+      "checkin": "",
+      "checkout": ""
+    },
+    "additionalneeds": ""
+  },
+
+  "negativePrice": {
+    "firstname": "John",
+    "lastname": "Doe",
+    "totalprice": -500,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2026-07-15",
+      "checkout": "2026-07-20"
+    },
+    "additionalneeds": "Breakfast"
+  }
+}

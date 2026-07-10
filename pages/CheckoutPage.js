@@ -52,6 +52,30 @@ async verifyOrderSuccess() {
     ).toHaveText('Thank you for your order!');
 }
 
+async enterFirstName(firstName) {
+    await this.page.fill('[data-test="firstName"]', firstName);
+}
+
+async enterLastName(lastName) {
+    await this.page.fill('[data-test="lastName"]', lastName);
+}
+
+async enterPostalCode(postalCode) {
+    await this.page.fill('[data-test="postalCode"]', postalCode);
+}
+
+async clickContinue() {
+    await this.page.click('[data-test="continue"]');
+}
+
+async clickFinish() {
+    await this.page.click('[data-test="finish"]');
+}
+
+getSuccessMessage() {
+    return this.page.locator('.complete-header');
+}
+
 }
 
 module.exports = CheckoutPage;

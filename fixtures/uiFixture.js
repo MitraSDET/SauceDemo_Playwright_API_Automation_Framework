@@ -1,26 +1,36 @@
-const { test: base } = require('@playwright/test');
+const base = require('@playwright/test');
 
 const LoginPage = require('../pages/LoginPage');
-const ProductsPage = require('../pages/ProductsPage');
+const ProductPage = require('../pages/ProductPage');
 const CartPage = require('../pages/CartPage');
 const CheckoutPage = require('../pages/CheckoutPage');
 
-exports.test = base.extend({
+exports.test = base.test.extend({
+
     loginPage: async ({ page }, use) => {
+
         await use(new LoginPage(page));
+
     },
 
-    productsPage: async ({ page }, use) => {
-        await use(new ProductsPage(page));
+    productPage: async ({ page }, use) => {
+
+        await use(new ProductPage(page));
+
     },
 
     cartPage: async ({ page }, use) => {
+
         await use(new CartPage(page));
+
     },
 
     checkoutPage: async ({ page }, use) => {
+
         await use(new CheckoutPage(page));
+
     }
+
 });
 
 exports.expect = base.expect;

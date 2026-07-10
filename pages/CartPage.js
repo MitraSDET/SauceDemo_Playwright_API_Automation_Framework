@@ -32,6 +32,14 @@ class CartPage {
         );
     }
 
+    getCartItems() {
+    return this.page.locator('.cart_item');
+}
+
+async clickCheckout() {
+    await this.page.click('[data-test="checkout"]');
+}
+
 }
 
 module.exports = CartPage;

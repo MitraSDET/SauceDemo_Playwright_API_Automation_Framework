@@ -1,23 +1,17 @@
 class CommonUtils {
 
+    static getRandomNumber() {
+        return Math.floor(Math.random() * 100000);
+    }
+
     static getCurrentDate() {
-        return new Date().toLocaleDateString();
+        return new Date().toISOString().split('T')[0];
     }
 
-    static getCurrentTime() {
-        return new Date().toLocaleTimeString();
-    }
-
-    static getRandomNumber(max = 10000) {
-        return Math.floor(Math.random() * max);
-    }
-
-    static generateRandomEmail() {
-        return `user${this.getRandomNumber()}@gmail.com`;
-    }
-
-    static async wait(milliseconds) {
-        return new Promise(resolve => setTimeout(resolve, milliseconds));
+    static addDays(days) {
+        const date = new Date();
+        date.setDate(date.getDate() + days);
+        return date.toISOString().split('T')[0];
     }
 
 }

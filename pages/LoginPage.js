@@ -24,6 +24,10 @@ class LoginPage extends BasePage {
         await this.click(LoginLocators.login.loginButton);
     }
 
+    getErrorMessage() {
+    return this.page.locator('[data-test="error"]');
+}
+
     async login(username, password) {
         await this.enterUsername(username);
         await this.enterPassword(password);

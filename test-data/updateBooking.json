@@ -1,0 +1,13 @@
+{
+  "updatedBooking": {
+    "firstname": "David",
+    "lastname": "Warner",
+    "totalprice": 850,
+    "depositpaid": false,
+    "bookingdates": {
+      "checkin": "2026-08-10",
+      "checkout": "2026-08-18"
+    },
+    "additionalneeds": "Lunch"
+  }
+}
