@@ -1,73 +1,50 @@
-const ApiClient = require('../utils/ApiClient');
-const testData = require('../data/testData.json');
-
 class BookingService {
-
-    constructor(request){
-        this.apiClient = new ApiClient(request);
+    constructor(apiClient) {
+        this.apiClient = apiClient;
     }
 
-
-    async createBooking(){
-
-        return await this.apiClient.post(
-            '/booking',
-            testData.booking
-        );
-
+    async createBooking(payload) {
+        return this.apiClient.post('/booking', payload);
     }
 
-
-    async getBooking(id){
-
-        return await this.apiClient.get(
-            `/booking/${id}`
-        );
-
+    async getBooking(id) {
+        return this.apiClient.get(`/booking/${id}`);
     }
 
-
-    async updateBooking(id,payload,token){
-
-        return await this.apiClient.put(
+    async updateBooking(id, payload, token) {
+        return this.apiClient.put(
             `/booking/${id}`,
             payload,
             {
-                headers:{
-                    Cookie:`token=${token}`
+                headers: {
+                    Cookie: `token=${token}`
                 }
             }
         );
     }
 
-
-    async patchBooking(id,payload,token){
-
-        return await this.apiClient.patch(
+    async patchBooking(id, payload, token) {
+        return this.apiClient.patch(
             `/booking/${id}`,
             payload,
             {
-                headers:{
-                    Cookie:`token=${token}`
+                headers: {
+                    Cookie: `token=${token}`
                 }
             }
         );
     }
 
-
-    async deleteBooking(id,token){
-
-        return await this.apiClient.delete(
+    async deleteBooking(id, token) {
+        return this.apiClient.delete(
             `/booking/${id}`,
             {
-                headers:{
-                    Cookie:`token=${token}`
+                headers: {
+                    Cookie: `token=${token}`
                 }
             }
         );
     }
-
 }
-
 
 module.exports = BookingService;

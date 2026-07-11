@@ -26,11 +26,17 @@ test.describe('Booking Lifecycle', () => {
 
         const bookingId = (await createResponse.json()).bookingid;
 
+        console.log("Token:", token);
+
         const putResponse = await bookingService.updateBooking(
             bookingId,
-            token,
-            updateData.updatedBooking
+            updateData.updatedBooking,
+            token
+            
         );
+        
+        //console.log("PUT Status:", putResponse.status());
+        //console.log("PUT Response:", await putResponse.text());
 
         expect(putResponse.status()).toBe(200);
 
@@ -40,10 +46,11 @@ test.describe('Booking Lifecycle', () => {
             updateData.updatedBooking.firstname
         );
 
-        const patchResponse = await bookingService.partialUpdateBooking(
+        const patchResponse = await bookingService.patchBooking(
             bookingId,
-            token,
-            partialData.partialUpdate
+            partialData.partialUpdate,
+            token
+            
         );
 
         expect(patchResponse.status()).toBe(200);
