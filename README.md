@@ -1,131 +1,22 @@
-# SauceDemo Playwright UI & API Automation Framework
+# 🚀 SauceDemo Playwright UI & API Automation Framework
 
-## Overview
-
-This project is a hybrid UI and API automation framework developed using **Playwright with JavaScript**.
-
-The framework automates:
-
-- UI Test Automation for SauceDemo
-- API Test Automation for Restful Booker
-- Page Object Model (POM)
-- Reusable API Services
-- JSON Test Data Management
-- Allure Reporting
-- Playwright Test Runner
+A scalable and maintainable test automation framework built using **Playwright with JavaScript**. This project combines **UI Automation** for SauceDemo and **API Automation** for Restful Booker, following industry-standard automation practices such as the **Page Object Model (POM)**, reusable service classes, centralized test data management, and **Allure Reporting**.
 
 ---
 
-## Tech Stack
+# 📌 Project Overview
 
-- Playwright
-- JavaScript (Node.js)
-- Playwright Test
-- REST API Testing
-- Allure Report
-- Git & GitHub
+This framework automates end-to-end web and API testing using Playwright.
 
----
-
-## Application Under Test
-
-### UI
-
-https://www.saucedemo.com/
-
-### API
-
-https://restful-booker.herokuapp.com
-
----
-
-## Framework Structure
-
-```
-SauceDemo_Playwright_API_Automation_Framework
-│
-├── config
-│   ├── apiConfig.js
-│   └── TestConfig.js
-│
-├── fixtures
-│
-├── locators
-│
-├── pages
-│   ├── LoginPage.js
-│   ├── ProductsPage.js
-│   ├── CartPage.js
-│   └── CheckoutPage.js
-│
-├── payloads
-│
-├── schemas
-│
-├── services
-│   ├── AuthService.js
-│   └── BookingService.js
-│
-├── test-data
-│   ├── bookingData.json
-│   ├── updateBooking.json
-│   ├── partialUpdate.json
-│   ├── invalidData.json
-│   └── users.json
-│
-├── tests
-│   ├── api
-│   │   ├── auth.spec.js
-│   │   ├── bookingCRUD.spec.js
-│   │   ├── bookingLifecycle.spec.js
-│   │   └── bookingNegative.spec.js
-│   │
-│   └── ui
-│       ├── Login.spec.js
-│       ├── Cart.spec.js
-│       └── Checkout.spec.js
-│
-├── utils
-│   ├── ApiClient.js
-│   ├── TokenManager.js
-│   └── Helper.js
-│
-├── playwright.config.js
-├── package.json
-└── README.md
-```
-
----
-
-# Framework Design
-
-The framework follows the following design principles:
-
-- Page Object Model (POM)
-- Service Layer for API
-- JSON Test Data
-- Reusable Utility Classes
-- Modular Structure
-- Easy Maintenance
-- Scalable Framework
-
----
-
-# Features
-
-## UI Automation
-
-- Login
-- Invalid Login
+### UI Automation
+- User Login
+- Invalid Login Validation
 - Add Products to Cart
-- Checkout
-- Complete Order Flow
+- Checkout Process
+- Order Completion
 
----
-
-## API Automation
-
-- Authentication
+### API Automation
+- Authentication Token Generation
 - Create Booking
 - Get Booking
 - Update Booking
@@ -135,18 +26,148 @@ The framework follows the following design principles:
 
 ---
 
-# Prerequisites
+# 🛠 Tech Stack
 
-Install:
+| Technology | Purpose |
+|------------|---------|
+| Playwright | UI & API Automation |
+| JavaScript (Node.js) | Programming Language |
+| Playwright Test | Test Runner |
+| REST API | API Testing |
+| Allure Report | Reporting |
+| Git & GitHub | Version Control |
+
+---
+
+# 🌐 Applications Under Test
+
+### UI Application
+
+https://www.saucedemo.com/
+
+### API Application
+
+https://restful-booker.herokuapp.com/
+
+---
+
+# 📂 Project Structure
+
+```text
+SauceDemo_Playwright_API_Automation_Framework
+│
+├── .github/
+│
+├── allure-report/
+├── allure-results/
+│
+├── config/
+│   ├── apiConfig.js
+│   └── TestConfig.js
+│
+├── fixtures/
+│
+├── locators/
+│
+├── pages/
+│   ├── LoginPage.js
+│   ├── ProductsPage.js
+│   ├── CartPage.js
+│   └── CheckoutPage.js
+│
+├── payloads/
+│
+├── schemas/
+│
+├── services/
+│   ├── AuthService.js
+│   └── BookingService.js
+│
+├── test-data/
+│   ├── bookingData.json
+│   ├── updateBooking.json
+│   ├── partialUpdate.json
+│   ├── invalidData.json
+│   └── users.json
+│
+├── tests/
+│   ├── api/
+│   │   ├── auth.spec.js
+│   │   ├── bookingCRUD.spec.js
+│   │   ├── bookingLifecycle.spec.js
+│   │   └── bookingNegative.spec.js
+│   │
+│   └── ui/
+│       ├── Login.spec.js
+│       ├── Cart.spec.js
+│       └── Checkout.spec.js
+│
+├── test-results/
+│
+├── utils/
+│   ├── ApiClient.js
+│   ├── TokenManager.js
+│   └── Helper.js
+│
+├── playwright.config.js
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+---
+
+# 🏗 Framework Design
+
+The framework is designed using industry best practices.
+
+- Page Object Model (POM)
+- Reusable API Service Layer
+- Centralized Configuration
+- JSON Test Data Management
+- Modular Project Structure
+- Reusable Utility Classes
+- Easy Maintenance
+- Scalable Design
+
+---
+
+# ✅ Automated Test Scenarios
+
+## UI Test Scenarios
+
+- Verify successful login
+- Verify locked-out user login
+- Add multiple products to cart
+- Complete checkout process
+- Validate successful order completion
+
+---
+
+## API Test Scenarios
+
+- Generate Authentication Token
+- Create Booking
+- Retrieve Booking Details
+- Update Booking
+- Partial Update Booking
+- Delete Booking
+- Negative API Validation
+
+---
+
+# ⚙️ Prerequisites
+
+Install the following software before running the project:
 
 - Node.js
-- VS Code
+- Visual Studio Code
 - Git
-- Java JDK (for Allure)
+- Java JDK (Required for Allure)
 
-Verify installation
+Verify installation:
 
-```
+```bash
 node -v
 npm -v
 java -version
@@ -154,99 +175,115 @@ java -version
 
 ---
 
-# Installation
+# 📥 Installation
 
-Clone Repository
+## Clone the Repository
 
+```bash
+git clone https://github.com/MitraSDET/SauceDemo_Playwright_API_Automation_Framework.git
 ```
-git clone <Repository_URL>
-```
 
-Go to project
+Navigate to the project directory:
 
-```
+```bash
 cd SauceDemo_Playwright_API_Automation_Framework
 ```
 
-Install dependencies
+Install project dependencies:
 
-```
+```bash
 npm install
 ```
 
-Install Playwright browsers
+Install Playwright browsers:
 
-```
+```bash
 npx playwright install
 ```
 
 ---
 
-# Execute Tests
+# ▶️ Running the Tests
 
-Run all tests
+## Execute All Tests
 
-```
+```bash
 npx playwright test
 ```
 
-Run UI tests
+---
 
-```
+## Execute Only UI Tests
+
+```bash
 npx playwright test tests/ui
 ```
 
-Run API tests
+---
 
-```
+## Execute Only API Tests
+
+```bash
 npx playwright test tests/api
 ```
 
-Run a single test file
+---
 
-```
+## Execute a Specific Test File
+
+```bash
 npx playwright test tests/api/bookingLifecycle.spec.js
 ```
 
-Run headed mode
+---
 
-```
+## Run Tests in Headed Mode
+
+```bash
 npx playwright test --headed
 ```
 
 ---
 
-# Generate Allure Report
+## Run Tests in Debug Mode
 
-### Execute Tests
-
+```bash
+npx playwright test --debug
 ```
+
+---
+
+# 📊 Allure Report
+
+## Step 1: Execute Tests
+
+```bash
 npx playwright test
 ```
 
-### Generate Report
+## Step 2: Generate Allure Report
 
-```
+```bash
 npx allure generate allure-results --clean -o allure-report
 ```
 
-### Open Report
+## Step 3: Open Allure Report
 
-```
+```bash
 npx allure open allure-report
 ```
 
 ---
 
-# Test Data
+# 📁 Test Data
 
-Test data is maintained under:
+All test data is maintained under:
 
-```
+```text
 test-data/
 ```
 
-Example:
+Available test data files:
 
 - bookingData.json
 - updateBooking.json
@@ -256,78 +293,98 @@ Example:
 
 ---
 
-# Reports
+# 📈 Reporting
 
-Playwright generates:
+After execution, Playwright generates:
 
-```
+```text
 allure-results/
 ```
 
-Generated report:
+Generate the report into:
 
-```
+```text
 allure-report/
 ```
 
----
+The report includes:
 
-# Project Highlights
-
-✔ UI Automation using Playwright
-
-✔ API Automation using Playwright Request API
-
-✔ Page Object Model
-
-✔ Reusable API Client
-
-✔ Token Management
-
-✔ JSON Test Data
-
-✔ Allure Reporting
-
-✔ Modular Framework
-
-✔ GitHub Ready
+- Test Execution Summary
+- Passed / Failed Tests
+- Execution Timeline
+- Test Steps
+- Error Details
+- Stack Trace
 
 ---
 
-# Future Enhancements
+# ⭐ Framework Highlights
 
-- CI/CD Integration (GitHub Actions/Jenkins)
+- UI Automation using Playwright
+- API Automation using Playwright Request Context
+- Page Object Model (POM)
+- Service Layer Architecture
+- Centralized Test Data Management
+- Token-Based Authentication
+- Reusable API Client
+- Allure Reporting
+- Modular & Scalable Framework
+- Easy Integration with CI/CD Pipelines
+
+---
+
+# 🚀 Future Enhancements
+
+- Jenkins Integration
+- GitHub Actions CI/CD
 - Docker Support
-- Cross Browser Execution
-- Environment Configuration
+- Cross-Browser Parallel Execution
+- Environment-Based Configuration
 - JSON Schema Validation
-- Data Driven Testing
-- Parallel Execution
-- Retry Mechanism
-- API Response Validation
+- Data-Driven Testing
+- HTML Report Integration
+- API Contract Testing
 
 ---
 
-# Author
+# 👨‍💻 Author
 
 **Mitrabhanu Rout**
 
-Senior QA Automation Engineer
+**Senior QA Automation Engineer**
 
-**Skills**
+### Technical Skills
 
 - Playwright
-- Selenium
+- Selenium WebDriver
 - JavaScript
 - Java
-- REST API Testing
+- API Testing
+- Postman
+- REST Assured
 - Automation Framework Design
+- Git & GitHub
 - CI/CD
-- Git
-- Allure Report
+- Allure Reporting
 
 ---
 
-# License
+# 🤝 Contributing
 
-This project is intended for learning, automation practice, and demonstration purposes.
+Contributions, suggestions, and improvements are always welcome.
+
+1. Fork the repository
+2. Create a new feature branch
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
+
+---
+
+# 📄 License
+
+This project is developed for learning, demonstration, and automation practice purposes.
+
+---
+
+## ⭐ If you found this project useful, consider giving it a Star on GitHub!
