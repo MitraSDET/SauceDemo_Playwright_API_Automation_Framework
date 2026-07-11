@@ -1,42 +1,56 @@
-# SauceDemo Playwright Automation Framework
+# SauceDemo Playwright UI & API Automation Framework
 
 ## Overview
 
-This project is a UI Automation Framework built from scratch using **Playwright with JavaScript** following the **Page Object Model (POM)** design pattern.
+This project is a hybrid UI and API automation framework developed using **Playwright with JavaScript**.
 
-Application Under Test:
-https://www.saucedemo.com/
+The framework automates:
 
-The framework is designed to be scalable, reusable, and easy to maintain, making it suitable for enterprise automation projects.
+- UI Test Automation for SauceDemo
+- API Test Automation for Restful Booker
+- Page Object Model (POM)
+- Reusable API Services
+- JSON Test Data Management
+- Allure Reporting
+- Playwright Test Runner
 
 ---
 
-## Technology Stack
+## Tech Stack
 
 - Playwright
 - JavaScript (Node.js)
-- Page Object Model (POM)
-- Playwright Test Runner
+- Playwright Test
+- REST API Testing
+- Allure Report
 - Git & GitHub
 
 ---
 
-## Project Structure
+## Application Under Test
+
+### UI
+
+https://www.saucedemo.com/
+
+### API
+
+https://restful-booker.herokuapp.com
+
+---
+
+## Framework Structure
 
 ```
-SauceDemo_Playwright_Automation_Framework
+SauceDemo_Playwright_API_Automation_Framework
 │
 ├── config
+│   ├── apiConfig.js
 │   └── TestConfig.js
 │
 ├── fixtures
-│   └── baseFixture.js
 │
 ├── locators
-│   ├── LoginLocators.js
-│   ├── ProductsLocators.js
-│   ├── CartLocators.js
-│   └── CheckoutLocators.js
 │
 ├── pages
 │   ├── LoginPage.js
@@ -44,19 +58,37 @@ SauceDemo_Playwright_Automation_Framework
 │   ├── CartPage.js
 │   └── CheckoutPage.js
 │
-├── testdata
+├── payloads
+│
+├── schemas
+│
+├── services
+│   ├── AuthService.js
+│   └── BookingService.js
+│
+├── test-data
+│   ├── bookingData.json
+│   ├── updateBooking.json
+│   ├── partialUpdate.json
+│   ├── invalidData.json
 │   └── users.json
 │
 ├── tests
-│   ├── login.spec.js
-│   ├── cart.spec.js
-│   └── checkout.spec.js
+│   ├── api
+│   │   ├── auth.spec.js
+│   │   ├── bookingCRUD.spec.js
+│   │   ├── bookingLifecycle.spec.js
+│   │   └── bookingNegative.spec.js
+│   │
+│   └── ui
+│       ├── Login.spec.js
+│       ├── Cart.spec.js
+│       └── Checkout.spec.js
 │
 ├── utils
-│   ├── BasePage.js
-│   ├── CommonUtils.js
-│   ├── Logger.js
-│   └── Screenshot.js
+│   ├── ApiClient.js
+│   ├── TokenManager.js
+│   └── Helper.js
 │
 ├── playwright.config.js
 ├── package.json
@@ -65,200 +97,237 @@ SauceDemo_Playwright_Automation_Framework
 
 ---
 
-## Framework Design
+# Framework Design
 
-The framework follows the Page Object Model architecture.
+The framework follows the following design principles:
 
-### Config
-
-Contains application configuration.
-
-### Locators
-
-Stores all page locators separately from business logic.
-
-### Pages
-
-Contains reusable page methods.
-
-### Tests
-
-Contains only test scenarios.
-
-### Utilities
-
-Reusable helper methods like logging, screenshots, waits, etc.
-
-### Test Data
-
-Externalized test data using JSON.
+- Page Object Model (POM)
+- Service Layer for API
+- JSON Test Data
+- Reusable Utility Classes
+- Modular Structure
+- Easy Maintenance
+- Scalable Framework
 
 ---
 
-## Test Scenarios Automated
+# Features
 
-### Scenario 1
+## UI Automation
 
-- Successful Login
-- Verify Product Listing Page
-
-### Scenario 2
-
-- Login with Locked User
-- Verify Error Message
-
-### Scenario 3
-
-- Add Two Products
-- Navigate to Cart
-- Complete Checkout
-- Verify Successful Order
+- Login
+- Invalid Login
+- Add Products to Cart
+- Checkout
+- Complete Order Flow
 
 ---
 
-## Installation
+## API Automation
 
-Clone the repository
+- Authentication
+- Create Booking
+- Get Booking
+- Update Booking
+- Partial Update Booking
+- Delete Booking
+- Negative API Scenarios
 
-```bash
-git clone https://github.com/MitraSDET/SauceDemo_Playwright_Automation_Framework.git
+---
+
+# Prerequisites
+
+Install:
+
+- Node.js
+- VS Code
+- Git
+- Java JDK (for Allure)
+
+Verify installation
+
+```
+node -v
+npm -v
+java -version
 ```
 
-Navigate to project
+---
 
-```bash
-cd SauceDemo_Playwright_Automation_Framework
+# Installation
+
+Clone Repository
+
+```
+git clone <Repository_URL>
+```
+
+Go to project
+
+```
+cd SauceDemo_Playwright_API_Automation_Framework
 ```
 
 Install dependencies
 
-```bash
+```
 npm install
 ```
 
 Install Playwright browsers
 
-```bash
+```
 npx playwright install
 ```
 
 ---
 
-## Running Tests
+# Execute Tests
 
 Run all tests
 
-```bash
+```
 npx playwright test
 ```
 
-Run Login Tests
+Run UI tests
 
-```bash
-npx playwright test tests/login.spec.js
+```
+npx playwright test tests/ui
 ```
 
-Run Cart Tests
+Run API tests
 
-```bash
-npx playwright test tests/cart.spec.js
+```
+npx playwright test tests/api
 ```
 
-Run Checkout Tests
+Run a single test file
 
-```bash
-npx playwright test tests/checkout.spec.js
+```
+npx playwright test tests/api/bookingLifecycle.spec.js
 ```
 
-Run in headed mode
+Run headed mode
 
-```bash
+```
 npx playwright test --headed
 ```
 
-Run in debug mode
+---
 
-```bash
-npx playwright test --debug
+# Generate Allure Report
+
+### Execute Tests
+
+```
+npx playwright test
+```
+
+### Generate Report
+
+```
+npx allure generate allure-results --clean -o allure-report
+```
+
+### Open Report
+
+```
+npx allure open allure-report
 ```
 
 ---
 
-## Playwright Report
+# Test Data
 
-Generate report
+Test data is maintained under:
 
-```bash
-npx playwright show-report
+```
+test-data/
+```
+
+Example:
+
+- bookingData.json
+- updateBooking.json
+- partialUpdate.json
+- invalidData.json
+- users.json
+
+---
+
+# Reports
+
+Playwright generates:
+
+```
+allure-results/
+```
+
+Generated report:
+
+```
+allure-report/
 ```
 
 ---
 
-## Features
+# Project Highlights
 
-- Page Object Model
-- Reusable Base Page
-- Separate Locator Classes
-- External Test Data
-- Modular Framework
-- Easy Maintenance
-- Scalable Architecture
-- Screenshot Utility
-- Logger Utility
-- Common Helper Methods
+✔ UI Automation using Playwright
 
----
+✔ API Automation using Playwright Request API
 
-## Design Principles
+✔ Page Object Model
 
-- Reusability
-- Maintainability
-- Readability
-- Scalability
-- Separation of Concerns
+✔ Reusable API Client
+
+✔ Token Management
+
+✔ JSON Test Data
+
+✔ Allure Reporting
+
+✔ Modular Framework
+
+✔ GitHub Ready
 
 ---
 
-## Future Enhancements
+# Future Enhancements
 
 - CI/CD Integration (GitHub Actions/Jenkins)
-- Cross Browser Parallel Execution
-- Allure Reporting
-- Environment Configuration
-- API Integration
 - Docker Support
+- Cross Browser Execution
+- Environment Configuration
+- JSON Schema Validation
+- Data Driven Testing
+- Parallel Execution
 - Retry Mechanism
-- Email Reporting
+- API Response Validation
 
 ---
 
-## Author
+# Author
 
 **Mitrabhanu Rout**
 
-Senior Software Test Engineer
+Senior QA Automation Engineer
 
-Automation Skills
+**Skills**
 
 - Playwright
-- JavaScript
 - Selenium
+- JavaScript
 - Java
-- API Testing
-- Postman
-- Page Object Model
-- Git
+- REST API Testing
+- Automation Framework Design
 - CI/CD
+- Git
+- Allure Report
 
 ---
 
-## Assignment
+# License
 
-This project was developed as part of a UI Automation Framework assignment demonstrating:
-
-- Playwright Automation
-- Framework Design
-- Coding Standards
-- Page Object Model
-- Modular Architecture
-- Best Automation Practices
+This project is intended for learning, automation practice, and demonstration purposes.
